@@ -1,0 +1,1110 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>markdown-docs</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="简介.html">简介</a></li><li class="chapter-item expanded affix "><li class="part-title">基本使用</li><li class="chapter-item expanded "><a href="标题.html"><strong aria-hidden="true">1.</strong> 标题</a></li><li class="chapter-item expanded "><a href="粗体.html"><strong aria-hidden="true">2.</strong> 粗体</a></li><li class="chapter-item expanded "><a href="斜体.html"><strong aria-hidden="true">3.</strong> 斜体</a></li><li class="chapter-item expanded "><a href="粗斜体.html"><strong aria-hidden="true">4.</strong> 粗斜体</a></li><li class="chapter-item expanded "><a href="下划线.html"><strong aria-hidden="true">5.</strong> 下划线</a></li><li class="chapter-item expanded "><a href="删除线.html"><strong aria-hidden="true">6.</strong> 删除线</a></li><li class="chapter-item expanded "><a href="无序列表.html"><strong aria-hidden="true">7.</strong> 无序列表</a></li><li class="chapter-item expanded "><a href="有序列表.html"><strong aria-hidden="true">8.</strong> 有序列表</a></li><li class="chapter-item expanded "><a href="链接.html"><strong aria-hidden="true">9.</strong> 链接</a></li><li class="chapter-item expanded "><a href="图片.html"><strong aria-hidden="true">10.</strong> 图片</a></li><li class="chapter-item expanded "><a href="视频.html"><strong aria-hidden="true">11.</strong> 视频</a></li><li class="chapter-item expanded "><a href="引用.html"><strong aria-hidden="true">12.</strong> 引用</a></li><li class="chapter-item expanded "><a href="行内代码.html"><strong aria-hidden="true">13.</strong> 行内代码</a></li><li class="chapter-item expanded "><a href="代码块.html"><strong aria-hidden="true">14.</strong> 代码块</a></li><li class="chapter-item expanded "><a href="表格.html"><strong aria-hidden="true">15.</strong> 表格</a></li><li class="chapter-item expanded "><a href="任务列表.html"><strong aria-hidden="true">16.</strong> 任务列表</a></li><li class="chapter-item expanded "><a href="特殊符号.html"><strong aria-hidden="true">17.</strong> 特殊符号</a></li><li class="chapter-item expanded "><a href="分割线.html"><strong aria-hidden="true">18.</strong> 分割线</a></li><li class="chapter-item expanded "><a href="脚注.html"><strong aria-hidden="true">19.</strong> 脚注</a></li><li class="chapter-item expanded affix "><li class="part-title">高级用法</li><li class="chapter-item expanded "><a href="流程图.html"><strong aria-hidden="true">20.</strong> 流程图</a></li><li class="chapter-item expanded "><a href="公式.html"><strong aria-hidden="true">21.</strong> 公式</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">markdown-docs</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="简介"><a class="header" href="#简介">简介</a></h1>
+<p>Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）。它允许人们使用易读易写的纯文本格式编写文档，然后转换成有效的 XHTML（或者HTML）文档这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。</p>
+<p>由于 Markdown 的轻量化、易读易写特性，并且对于图片，图表、数学式都有支持，许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。 如 GitHub、Reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge、简书等，甚至还能被使用来撰写电子书。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="一级标题"><a class="header" href="#一级标题">一级标题</a></h1>
+<p>语法示例：</p>
+<pre><code class="language-markdown"># 一级标题
+</code></pre>
+<h2 id="二级标题"><a class="header" href="#二级标题">二级标题</a></h2>
+<p>语法示例：</p>
+<pre><code class="language-markdown"># 二级标题
+</code></pre>
+<h3 id="三级标题"><a class="header" href="#三级标题">三级标题</a></h3>
+<p>语法示例：</p>
+<pre><code class="language-markdown"># 三级标题
+</code></pre>
+<h4 id="四级标题"><a class="header" href="#四级标题">四级标题</a></h4>
+<p>语法示例：</p>
+<pre><code class="language-markdown"># 四级标题
+</code></pre>
+<h5 id="五级标题"><a class="header" href="#五级标题">五级标题</a></h5>
+<p>语法示例：</p>
+<pre><code class="language-markdown"># 五级标题
+</code></pre>
+<h6 id="六级标题"><a class="header" href="#六级标题">六级标题</a></h6>
+<p>语法示例：</p>
+<pre><code class="language-markdown"># 六级标题
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="粗体"><a class="header" href="#粗体">粗体</a></h1>
+<ul>
+<li>
+<p>示例效果</p>
+<p><strong>粗体</strong> </p>
+<p><strong>粗体</strong></p>
+<p><B>粗体</B></p>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>**粗体** 
+
+__粗体__
+
+&lt;B&gt;粗体&lt;/B&gt;
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="斜体"><a class="header" href="#斜体">斜体</a></h1>
+<ul>
+<li>
+<p>示例效果</p>
+<p><em>斜体</em></p>
+<p><em>斜体</em></p>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>*斜体*
+
+_斜体_
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="粗斜体"><a class="header" href="#粗斜体">粗斜体</a></h1>
+<ul>
+<li>
+<p>示例效果</p>
+<p><em><strong>粗斜体</strong></em></p>
+<p><em><strong>粗斜体</strong></em></p>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>***粗斜体***
+
+___粗斜体___
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="下划线"><a class="header" href="#下划线">下划线</a></h1>
+<ul>
+<li>
+<p>示例效果</p>
+<p><u>下划线</u></p>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>&lt;u&gt;下划线&lt;/u&gt;
+</code></pre>
+</li>
+<li>
+<p>注意事项</p>
+<p>不建议使用，因为有时候容易与链接混淆</p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="删除线"><a class="header" href="#删除线">删除线</a></h1>
+<ul>
+<li>
+<p>示例效果</p>
+<p><del>删除线</del></p>
+<p><s>删除线</s></p>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>~~删除线~~
+
+&lt;s&gt;删除线&lt;/s&gt;
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="无序列表"><a class="header" href="#无序列表">无序列表</a></h1>
+<ul>
+<li>
+<p>示例效果</p>
+<ul>
+<li>列表内容</li>
+</ul>
+<ul>
+<li>列表内容</li>
+</ul>
+<ul>
+<li>列表内容
+<ul>
+<li>嵌套列表内容</li>
+</ul>
+<ul>
+<li>嵌套列表内容</li>
+</ul>
+<ul>
+<li>嵌套列表内容</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>* 列表内容
++ 列表内容
+- 列表内容
+    * 嵌套列表内容
+    - 嵌套列表内容
+    + 嵌套列表内容
+</code></pre>
+</li>
+<li>
+<p>注意事项</p>
+<p>使用-+*都可以，但是-+*跟列表内容之间都要有空格，如果需要列表嵌套，只需多加三个空格或一个tab制表符即可，有的编辑器只能tab，这里三个空格和一个tab都行，建议习惯使用tab。</p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="有序列表"><a class="header" href="#有序列表">有序列表</a></h1>
+<ul>
+<li>
+<p>示例效果</p>
+<ol>
+<li>列表内容</li>
+<li>列表内容</li>
+<li>列表内容
+<ol>
+<li>嵌套列表内容</li>
+<li>嵌套列表内容</li>
+<li>嵌套列表内容</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>1. 列表内容
+2. 列表内容
+3. 列表内容
+    1. 嵌套列表内容
+    2. 嵌套列表内容
+    3. 嵌套列表内容
+</code></pre>
+</li>
+<li>
+<p>注意事项</p>
+<p>序号跟内容之间要有英文句号和空格，如果需要列表嵌套，只需多加三个空格或一个tab制表符即可，有的编辑器只能tab，这里三个空格和一个tab都行，建议习惯使用tab。</p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="链接"><a class="header" href="#链接">链接</a></h1>
+<h2 id="内联方式"><a class="header" href="#内联方式">内联方式</a></h2>
+<h3 id="示例一"><a class="header" href="#示例一">示例一</a></h3>
+<p>直接显示链接</p>
+<ul>
+<li>
+<p>示例效果</p>
+<p><a href="https://www.baidu.com">https://www.baidu.com</a></p>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>&lt;https://www.baidu.com&gt;
+</code></pre>
+</li>
+<li>
+<p>格式说明</p>
+<pre><code>&lt;超链接地址&gt;
+</code></pre>
+</li>
+</ul>
+<h3 id="示例二"><a class="header" href="#示例二">示例二</a></h3>
+<p>显示文本，不显示链接</p>
+<ul>
+<li>
+<p>示例效果</p>
+<p>This is an <a href="http://example.com/">example link</a></p>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>This is an [example link](http://example.com/)
+</code></pre>
+</li>
+<li>
+<p>格式说明</p>
+<pre><code>[超链接名](超链接地址)
+</code></pre>
+</li>
+</ul>
+<h3 id="示例三"><a class="header" href="#示例三">示例三</a></h3>
+<p>显示超链接名，不显示超链接地址；鼠标放到超链接名上时显示自定义的超链接标题。</p>
+<ul>
+<li>
+<p>示例效果</p>
+<p><a href="https://www.baidu.com" title="百度一下">百度首页</a></p>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>[百度首页](https://www.baidu.com &quot;百度一下&quot;)
+</code></pre>
+</li>
+<li>
+<p>格式说明</p>
+<pre><code>[超链接名](超链接地址 &quot;超链接title&quot;)
+</code></pre>
+<p>超链接title：超链接的标题，当鼠标移到超链接上时显示的内容，可加可不加，建议加上title。</p>
+</li>
+</ul>
+<h2 id="引用方式"><a class="header" href="#引用方式">引用方式</a></h2>
+<ul>
+<li>
+<p>示例效果</p>
+<p>I get 10 times more traffic from <a href="http://google.com/" title="Google">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search">MSN</a>.</p>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].
+
+[1]: http://google.com/ &quot;Google&quot; 
+[2]: http://search.yahoo.com/ &quot;Yahoo Search&quot; 
+[3]: http://search.msn.com/ &quot;MSN Search&quot;
+注意：第一行与下面的标号之间，必须空一行
+</code></pre>
+</li>
+<li>
+<p>格式说明</p>
+<pre><code>[超链接名][id] 
+
+[id]: 超链接地址 &quot;超链接title&quot;
+id：可以是数字、英文字符，也可以是中文，建议直接使用数字即可，简单明了。
+超链接title：超链接的标题，当鼠标移到超链接上时显示的内容，可加可不加，建议加上title。
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="图片"><a class="header" href="#图片">图片</a></h1>
+<h2 id="内联方式-1"><a class="header" href="#内联方式-1">内联方式</a></h2>
+<ul>
+<li>
+<p>示例效果</p>
+<p><img src="assets/images/result.png" alt="百度首页图片" title="百度一下" /> </p>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>![百度首页图片](https://www.baidu.com/img/flexible/logo/pc/result.png &quot;百度一下&quot;)
+</code></pre>
+</li>
+<li>
+<p>格式说明</p>
+<pre><code>![alt text](图片地址 &quot;图片title&quot;)
+alt text：图片的替代文字，也就是当图片还未加载成功时显示的替换文本
+图片title：图片的标题，当鼠标移到图片上时显示的内容，可加可不加，建议加上title。
+</code></pre>
+</li>
+</ul>
+<h2 id="引用方式-1"><a class="header" href="#引用方式-1">引用方式</a></h2>
+<ul>
+<li>
+<p>示例效果</p>
+<p><img src="https://www.baidu.com/img/flexible/logo/pc/result.png" alt="百度首页图片" title="百度一下" /> </p>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>![百度首页图片][100] 
+
+[100]: https://www.baidu.com/img/flexible/logo/pc/result.png &quot;百度一下&quot;
+</code></pre>
+</li>
+<li>
+<p>格式说明</p>
+<pre><code>![alt text][id] 
+
+[id]: 图片地址 &quot;图片title&quot;
+alt text：图片的替代文字，也就是当图片还未加载成功时显示的替换文本，建议加上，用图片名表示。
+id：可以是数字、英文字符，也可以是中文，建议直接使用数字即可，简单明了。
+图片title：图片的标题，当鼠标移到图片上时显示的内容，可加可不加，建议加上title。
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="视频"><a class="header" href="#视频">视频</a></h1>
+<p>在markdown中还可以插入视频，包括本地视频和网络视频，需要用到html语法。</p>
+<p>目前插入本地视频还存在一个问题，就是无法使用poster属性设置视频的预览图像。</p>
+<h2 id="本地视频"><a class="header" href="#本地视频">本地视频</a></h2>
+<h3 id="示例一-1"><a class="header" href="#示例一-1">示例一</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<p><video src="assets/videos/movie.mp4" controls></video></p>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code class="language-html">&lt;video src=&quot;assets/videos/movie.mp4&quot; controls&gt;&lt;/video&gt;
+</code></pre>
+</li>
+</ul>
+<h3 id="示例二-1"><a class="header" href="#示例二-1">示例二</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<video width="400" height="400" controls>
+	<source src="assets/videos/movie.mp4" type="video/mp4">
+</video>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code class="language-html">&lt;video width=&quot;400&quot; height=&quot;400&quot; controls&gt;
+	&lt;source src=&quot;assets/videos/movie.mp4&quot;  type=&quot;video/mp4&quot;&gt;
+&lt;/video&gt;
+</code></pre>
+</li>
+</ul>
+<h2 id="网络视频"><a class="header" href="#网络视频">网络视频</a></h2>
+<h3 id="示例一-2"><a class="header" href="#示例一-2">示例一</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<p><video src="https://www.runoob.com/try/demo_source/movie.mp4" controls></video></p>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code class="language-html">&lt;video src=&quot;https://www.runoob.com/try/demo_source/movie.mp4&quot; controls&gt;&lt;/video&gt;
+</code></pre>
+</li>
+</ul>
+<h3 id="示例二-2"><a class="header" href="#示例二-2">示例二</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<video width="400" height="400" poster="https://www.runoob.com/images/logo.png" controls>
+     <source src="https://www.runoob.com/try/demo_source/movie.mp4" type="video/mp4">
+</video>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code class="language-html">&lt;video width=&quot;400&quot; height=&quot;400&quot; poster=&quot;https://www.runoob.com/images/logo.png&quot; controls&gt;
+    &lt;source src=&quot;https://www.runoob.com/try/demo_source/movie.mp4&quot; type=&quot;video/mp4&quot;&gt;
+&lt;/video&gt;
+</code></pre>
+</li>
+</ul>
+<h3 id="示例三-1"><a class="header" href="#示例三-1">示例三</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<video id="my-video" class="video-js" controls preload="auto" width="100%" poster="https://zhangjikai.com/resource/poster.jpg" data-setup="{&quot;aspectRatio&quot;:&quot;16:9&quot;}">
+	<source src="https://zhangjikai.com/resource/demo.mp4" type="video/mp4">
+	<p class="vjs-no-js">
+		To view this video please enable JavaScript, and consider upgrading to a web browser that
+		<a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+	</p>
+</video>
+</li>
+<li>
+<p>示例语法</p>
+<p>为了使视频可以自适应，我们指定视频的<code>width</code>为100%，并设置宽高比为<code>16:9</code>，如下面所示</p>
+<pre><code class="language-html">&lt;video id=&quot;my-video&quot; class=&quot;video-js&quot; controls preload=&quot;auto&quot; width=&quot;100%&quot; poster=&quot;https://zhangjikai.com/resource/poster.jpg&quot; data-setup=&quot;{&amp;quot;aspectRatio&amp;quot;:&amp;quot;16:9&amp;quot;}&quot;&gt;
+     &lt;source src=&quot;https://zhangjikai.com/resource/demo.mp4&quot; type=&quot;video/mp4&quot;&gt;
+     &lt;p class=&quot;vjs-no-js&quot;&gt;
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          &lt;a href=&quot;http://videojs.com/html5-video-support/&quot; target=&quot;_blank&quot;&gt;supports HTML5 video&lt;/a&gt;
+     &lt;/p&gt;
+&lt;/video&gt;
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="引用"><a class="header" href="#引用">引用</a></h1>
+<h2 id="一级引用"><a class="header" href="#一级引用">一级引用</a></h2>
+<h3 id="单行"><a class="header" href="#单行">单行</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<blockquote>
+<p>这是一级引用</p>
+</blockquote>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>&gt; 这是一级引用
+</code></pre>
+</li>
+<li>
+<p>格式说明</p>
+</li>
+</ul>
+<h3 id="多行"><a class="header" href="#多行">多行</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<blockquote>
+<p>这是一级引用</p>
+<p>这是一级引用</p>
+</blockquote>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>&gt; 这是一级引用
+&gt; 
+&gt; 这是一级引用
+</code></pre>
+</li>
+</ul>
+<h2 id="二级引用"><a class="header" href="#二级引用">二级引用</a></h2>
+<h3 id="单行-1"><a class="header" href="#单行-1">单行</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<blockquote>
+<blockquote>
+<p>这是二级引用</p>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>&gt;&gt; 这是二级引用
+</code></pre>
+</li>
+</ul>
+<h3 id="多行-1"><a class="header" href="#多行-1">多行</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<blockquote>
+<blockquote>
+<p>这是二级引用</p>
+<p>这是二级引用</p>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>&gt;&gt; 这是二级引用
+&gt;&gt; 
+&gt;&gt; 这是二级引用
+</code></pre>
+</li>
+</ul>
+<h2 id="三级引用"><a class="header" href="#三级引用">三级引用</a></h2>
+<h3 id="单行-2"><a class="header" href="#单行-2">单行</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>这是三级引用</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>&gt;&gt;&gt; 这是三级引用
+</code></pre>
+</li>
+</ul>
+<h3 id="多行-2"><a class="header" href="#多行-2">多行</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>这是三级引用</p>
+<p>这是三级引用</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>&gt;&gt;&gt; 这是三级引用
+&gt;&gt;&gt; 
+&gt;&gt;&gt; 这是三级引用
+</code></pre>
+</li>
+</ul>
+<h2 id="引用嵌套"><a class="header" href="#引用嵌套">引用嵌套</a></h2>
+<h3 id="单行-3"><a class="header" href="#单行-3">单行</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<blockquote>
+<p>这是一级引用</p>
+<blockquote>
+<p>这是二级引用</p>
+<blockquote>
+<p>这是三级引用</p>
+</blockquote>
+<p>这是二级引用</p>
+</blockquote>
+<p>这是一级引用</p>
+</blockquote>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>&gt; 这是一级引用
+&gt; 
+&gt;&gt; 这是二级引用
+&gt;&gt; 
+&gt;&gt;&gt; 这是三级引用
+&gt;&gt; 
+&gt;&gt; 这是二级引用
+&gt; 
+&gt; 这是一级引用
+</code></pre>
+</li>
+</ul>
+<h3 id="多行-3"><a class="header" href="#多行-3">多行</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<blockquote>
+<p>这是一级引用</p>
+<p>这是一级引用</p>
+<blockquote>
+<p>这是二级引用</p>
+<p>这是二级引用</p>
+<blockquote>
+<p>这是三级引用</p>
+<p>这是三级引用</p>
+</blockquote>
+<p>这是二级引用</p>
+<p>这是二级引用</p>
+</blockquote>
+<p>这是一级引用</p>
+<p>这是一级引用</p>
+</blockquote>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>&gt; 这是一级引用
+&gt; 
+&gt; 这是一级引用
+&gt; 
+&gt;&gt; 这是二级引用
+&gt;&gt; 
+&gt;&gt; 这是二级引用
+&gt;&gt; 
+&gt;&gt;&gt; 这是三级引用
+&gt;&gt;&gt; 
+&gt;&gt;&gt; 这是三级引用
+&gt;&gt;&gt; 
+&gt;&gt; 这是二级引用
+&gt;&gt; 
+&gt;&gt; 这是二级引用
+&gt;&gt; 
+&gt; 这是一级引用
+&gt; 
+&gt; 这是一级引用
+</code></pre>
+</li>
+</ul>
+<h2 id="搭配其他语法"><a class="header" href="#搭配其他语法">搭配其他语法</a></h2>
+<h3 id="搭配行内代码"><a class="header" href="#搭配行内代码">搭配行内代码</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<blockquote>
+<p><code>这是一段引用内容</code></p>
+</blockquote>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>&gt; `这是一段引用内容`
+</code></pre>
+</li>
+</ul>
+<h3 id="搭配代码块"><a class="header" href="#搭配代码块">搭配代码块</a></h3>
+<h4 id="示例一-3"><a class="header" href="#示例一-3">示例一</a></h4>
+<ul>
+<li>
+<p>示例效果</p>
+<blockquote>
+<pre><code>这是一段引用内容
+</code></pre>
+</blockquote>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>&gt; ```
+&gt; 这是一段引用内容
+&gt; ```
+</code></pre>
+</li>
+</ul>
+<h4 id="示例二-3"><a class="header" href="#示例二-3">示例二</a></h4>
+<ul>
+<li>
+<p>示例效果</p>
+<blockquote>
+<pre><code>这是一段引用内容
+</code></pre>
+</blockquote>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>&gt; 	这是一段引用内容
+</code></pre>
+</li>
+</ul>
+<h3 id="搭配列表"><a class="header" href="#搭配列表">搭配列表</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<blockquote>
+<ul>
+<li>列表内容</li>
+<li>列表内容</li>
+<li>列表内容</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>&gt; - 列表内容
+&gt; - 列表内容
+&gt; - 列表内容
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="行内代码"><a class="header" href="#行内代码">行内代码</a></h1>
+<p>用两个`包裹起来的文字，显示为行内代码</p>
+<ul>
+<li>
+<p>示例效果</p>
+<p><code>123 123 123</code></p>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>`
+123
+123
+123
+`
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="代码块"><a class="header" href="#代码块">代码块</a></h1>
+<h2 id="方式一"><a class="header" href="#方式一">方式一</a></h2>
+<p>用两个```包裹起来的内容，可以显示为代码块</p>
+<h3 id="基础"><a class="header" href="#基础">基础</a></h3>
+<ul>
+<li>
+<p>示例效果</p>
+<pre><code>123
+123
+123
+</code></pre>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>```
+123
+123
+123
+```
+</code></pre>
+</li>
+</ul>
+<h3 id="进阶"><a class="header" href="#进阶">进阶</a></h3>
+<p>可以为代码块注明语言类型</p>
+<ul>
+<li>
+<p>示例效果</p>
+<pre><code class="language-python">def add_two_number(a, b):
+    return a + b
+
+n = add_two_number(2,5)
+print(n)
+</code></pre>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>```python
+def add_two_number(a, b):
+    return a + b
+  
+n = add_two_number(2,5)
+print(n)
+```
+</code></pre>
+</li>
+<li>
+<p>格式说明</p>
+<pre><code>```编程语言
+代码片段
+```
+</code></pre>
+</li>
+</ul>
+<h2 id="方式二"><a class="header" href="#方式二">方式二</a></h2>
+<p>在行首添加4个空格或者1个tab，也可以实现多行代码块。</p>
+<p>建议使用<strong>空格</strong>，因为tab有时候不够精确。</p>
+<ul>
+<li>
+<p>示例效果</p>
+<pre><code>123
+123
+123
+</code></pre>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>    123
+    123
+    123
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="表格"><a class="header" href="#表格">表格</a></h1>
+<h2 id="基础-1"><a class="header" href="#基础-1">基础</a></h2>
+<ul>
+<li>
+<p>示例效果</p>
+<div class="table-wrapper"><table><thead><tr><th>项目</th><th>价格</th></tr></thead><tbody>
+<tr><td>iPhone</td><td>$560</td></tr>
+<tr><td>iPad</td><td>$780</td></tr>
+<tr><td>iMac</td><td>$1000</td></tr>
+</tbody></table>
+</div></li>
+<li>
+<p>示例语法</p>
+<pre><code>|项目|价格|
+|-|-|
+|iPhone|$560|
+|iPad|$780|
+|iMac|$1000|
+</code></pre>
+</li>
+</ul>
+<h2 id="进阶-1"><a class="header" href="#进阶-1">进阶</a></h2>
+<p>可以使用冒号来定义对齐方式</p>
+<ul>
+<li>
+<p>示例效果</p>
+<div class="table-wrapper"><table><thead><tr><th>项目</th><th style="text-align: center">价格</th><th style="text-align: right">数量</th></tr></thead><tbody>
+<tr><td>iPhone</td><td style="text-align: center">6000元</td><td style="text-align: right">5</td></tr>
+<tr><td>iPad</td><td style="text-align: center">3800元</td><td style="text-align: right">12</td></tr>
+<tr><td>iMac</td><td style="text-align: center">10000元</td><td style="text-align: right">234</td></tr>
+</tbody></table>
+</div></li>
+<li>
+<p>示例语法</p>
+<pre><code>|项目|价格|数量|
+|-|:-:|-:|
+|iPhone|6000元|5|
+|iPad|3800元|12|
+|iMac|10000元|234|
+</code></pre>
+</li>
+<li>
+<p>格式说明</p>
+<pre><code>每行都用|分隔，(行首行位尾可不加|)；
+第二行用一个或多个-填充，以区分表头；此外可以用:-、:-:、-:表示左中右三种对齐方式，默认是左对齐。
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="任务列表"><a class="header" href="#任务列表">任务列表</a></h1>
+<ul>
+<li>
+<p>示例效果</p>
+<ul>
+<li><input disabled="" type="checkbox"/>
+购物</li>
+<li><input disabled="" type="checkbox" checked=""/>
+洗衣</li>
+<li><input disabled="" type="checkbox"/>
+做饭</li>
+<li><input disabled="" type="checkbox" checked=""/>
+玩游戏</li>
+</ul>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>- [ ] 购物
+- [x] 洗衣
+- [ ] 做饭
+- [x] 玩游戏
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="特殊符号"><a class="header" href="#特殊符号">特殊符号</a></h1>
+<ul>
+<li>
+<p>示例效果</p>
+<p>\   反斜线
+`   反引号
+*   星号
+_   底线
+{}  花括号
+[]  方括号
+()  括弧
+#   井字号
++   加号
+-   减号
+.   英文句点
+!   惊叹号</p>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>\\   反斜线
+\`   反引号
+\*   星号
+\_   底线
+\{}  花括号
+\[]  方括号
+\()  括弧
+\#   井字号
+\+   加号
+\-   减号
+\.   英文句点
+\!   惊叹号
+</code></pre>
+</li>
+<li>
+<p>格式说明</p>
+<pre><code>在用markdown输入特殊符号（如反斜线、反引号、星号、底线、花括号、方括号、括弧、井字号、加号、减号、英文句点、惊叹号等）的时候，一定要注意转义，否则将导致内容显示不全，甚至排版混乱。切记切记！！
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="分割线"><a class="header" href="#分割线">分割线</a></h1>
+<ul>
+<li>
+<p>示例效果</p>
+<hr />
+<hr />
+<hr />
+<hr />
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>
+---
+----
+***
+****
+</code></pre>
+</li>
+<li>
+<p>格式说明</p>
+<pre><code>用不少于三个的-或者*表示，前面必须空一行
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="脚注"><a class="header" href="#脚注">脚注</a></h1>
+<ul>
+<li>
+<p>示例效果</p>
+<p>使用 Markdown<sup class="footnote-reference"><a href="#1">1</a></sup>可以效率的书写文档, 直接转换成 HTML<sup class="footnote-reference"><a href="#2">2</a></sup>, 你可以使用 Typora<sup class="footnote-reference"><a href="#T">3</a></sup> 编辑器进行书写。</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Markdown是一种纯文本标记语言</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>HyperText Markup Language 超文本标记语言</p>
+</div>
+<div class="footnote-definition" id="T"><sup class="footnote-definition-label">3</sup>
+<p>NEW WAY TO READ &amp; WRITE MARKDOWN.</p>
+</div>
+</li>
+<li>
+<p>示例语法</p>
+<pre><code>使用 Markdown[^1]可以效率的书写文档, 直接转换成 HTML[^2], 你可以使用 Typora[^T] 编辑器进行书写。
+
+[^1]:Markdown是一种纯文本标记语言
+
+[^2]:HyperText Markup Language 超文本标记语言
+
+[^T]:NEW WAY TO READ &amp; WRITE MARKDOWN.
+</code></pre>
+</li>
+<li>
+<p>格式说明</p>
+<ol>
+<li>
+<p>在需要添加脚注的文字后面，加上脚注名</p>
+<pre><code>[^注脚名]
+</code></pre>
+</li>
+<li>
+<p>然后在文本的任意位置(一般在最后)添加脚注</p>
+<pre><code>脚注名:脚注内容
+</code></pre>
+</li>
+<li>
+<p>注意：脚注自动被搬运到最后面，请到文章末尾查看，并且脚注后方的链接可以直接跳转回到加注的地方。</p>
+</li>
+</ol>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="流程图"><a class="header" href="#流程图">流程图</a></h1>
+<p>敬请期待...</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="公式"><a class="header" href="#公式">公式</a></h1>
+<p>敬请期待...</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
